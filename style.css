@@ -1,0 +1,161 @@
+:root {
+  --bg-color: #0d0d0d; /* Fundo bem escuro para o neon destacar */
+  --text-color: #ffffff;
+  --x-color: #ff0055;  /* Rosa Neon */
+  --o-color: #00f2ff;  /* Azul Neon */
+  --neon-border: #bc13fe; /* Roxo Neon para o tabuleiro */
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.game {
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 15px;
+  /* Borda neon no container principal */
+  border: 2px solid var(--neon-border);
+  box-shadow: 0 0 10px var(--neon-border), 
+              inset 0 0 5px var(--neon-border);
+}
+
+.status {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #fff, 0 0 20px var(--neon-border);
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background: transparent;
+  border: 1px solid #333;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* Efeito ao passar o mouse nas casas */
+.square:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Neon para o X */
+.square[data-value="X"] {
+  color: var(--x-color);
+  text-shadow: 0 0 5px var(--x-color), 
+               0 0 15px var(--x-color), 
+               0 0 30px var(--x-color);
+}
+
+/* Neon para o O */
+.square[data-value="O"] {
+  color: var(--o-color);
+  text-shadow: 0 0 5px var(--o-color), 
+               0 0 15px var(--o-color), 
+               0 0 30px var(--o-color);
+}
+
+.btn-reset {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: white;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.3s;
+  /* Brilho branco no botão */
+  box-shadow: 0 0 5px #fff;
+}
+
+.btn-reset:hover {
+  background: white;
+  color: black;
+  box-shadow: 0 0 20px #fff;
+}
+
+/* Estilizando o histórico para não quebrar o visual */
+.game-info button {
+  background: #222;
+  color: #ccc;
+  border: 1px solid #444;
+  margin: 2px;
+  cursor: pointer;
+}
+/* ... mantenha as variáveis :root anteriores ... */
+
+.game {
+  display: flex;
+  flex-direction: row; /* Coloca tabuleiro e info lado a lado */
+  align-items: flex-start;
+  gap: 40px;
+  background: #1a1a1a;
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid var(--neon-border);
+  box-shadow: 0 0 15px var(--neon-border);
+}
+
+.game-info {
+  border-left: 1px solid #333;
+  padding-left: 20px;
+  min-width: 150px;
+}
+
+.game-info h3 {
+  color: var(--neon-border);
+  text-shadow: 0 0 5px var(--neon-border);
+  font-size: 1rem;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.game-info ol {
+  list-style: none; /* Remove os números (1. 2. 3.) */
+  padding: 0;
+  margin: 0;
+}
+
+.game-info li {
+  margin-bottom: 8px;
+}
+
+.game-info button {
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #444;
+  padding: 5px 10px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: 0.2s;
+  border-radius: 4px;
+}
+
+.game-info button:hover {
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 0 5px #fff;
+}
+
+/* Responsividade: em telas pequenas, volta a ser empilhado */
+@media (max-width: 600px) {
+  .game { flex-direction: column; align-items: center; }
+  .game-info { border-left: none; border-top: 1px solid #333; padding-top: 20px; }
+}
